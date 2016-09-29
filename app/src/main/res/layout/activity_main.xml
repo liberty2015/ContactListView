@@ -6,11 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.liberty.contactlistview.MainActivity">
-    <TextView
-        android:text="4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <com.example.liberty.contactlistview.widget.PinYinSlideView
+    <!--<TextView-->
+        <!--android:text="4"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+        <com.example.liberty.contactlistview.widget.PinYinSlideView
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pinYinSlideView" />
+        <com.example.liberty.contactlistview.widget.CircleTextView
+            android:id="@+id/circleText"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
 </LinearLayout>
