@@ -1,6 +1,7 @@
 package com.example.liberty.contactlistview.bean;
 
 import java.io.Serializable;
+import java.io.StreamCorruptedException;
 
 /**
  * Created by Administrator on 2016/9/28.
@@ -13,6 +14,15 @@ public class Friend implements Serializable {
     private String phoneNumber;
     private String area;
     private String headerUrl;
+    private String pinyin;
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
+    }
 
     public void setAccount(String account) {
         this.account = account;
@@ -60,5 +70,9 @@ public class Friend implements Serializable {
 
     public String getHeaderUrl() {
         return headerUrl;
+    }
+
+    public String getFirstPinyin(){
+        return pinyin!=null?pinyin.substring(0,1):"";
     }
 }

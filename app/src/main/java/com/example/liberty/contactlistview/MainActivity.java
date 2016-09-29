@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.liberty.contactlistview.adapter.ContactAdapter;
 import com.example.liberty.contactlistview.bean.Friend;
 import com.example.liberty.contactlistview.common.PinYinComparator;
+import com.example.liberty.contactlistview.common.Pinyin4jUtil;
 import com.example.liberty.contactlistview.widget.CircleTextView;
 import com.example.liberty.contactlistview.widget.DividerItemDecoration;
 import com.example.liberty.contactlistview.widget.PinYinSlideView;
@@ -44,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
         ContactAdapter contactAdapter=new ContactAdapter(this,friends);
         contactList.setAdapter(contactAdapter);
         contactList.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
+        contactList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
     }
 
     private List<Friend> getFriendList(){
@@ -55,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             while ((input=reader.readLine())!=null){
                 Friend friend=new Friend();
                 friend.setAccount(input);
+                friend.setPinyin(Pinyin4jUtil.convertToFirstSpell(input));
                 friends.add(friend);
             }
             if (friends.size()>1){

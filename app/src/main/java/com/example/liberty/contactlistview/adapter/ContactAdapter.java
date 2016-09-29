@@ -1,6 +1,8 @@
 package com.example.liberty.contactlistview.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -29,7 +31,20 @@ public class ContactAdapter extends BaseRecyclerAdapter<Friend,BaseHolder> {
 
     @Override
     public void bindCustomViewHolder(BaseHolder holder, int position) {
-        ((TextView)holder.getView(R.id.name)).setText(getItem(position).getAccount());
+        Friend friend=getItem(position);
+        ((TextView)holder.getView(R.id.name)).setText(friend.getAccount());
+        if (position==0){
+            holder.getView(R.id.stick_container).setVisibility(View.VISIBLE);
+            ((TextView)holder.getView(R.id.header)).setText(friend.getFirstPinyin());
+        }else {
+            if (!TextUtils.equals(friend.getFirstPinyin(),getItem(position-1).getFirstPinyin())){
+                holder.getView(R.id.stick_container).setVisibility(View.VISIBLE);
+                ((TextView)holder.getView(R.id.header)).setText(friend.getFirstPinyin());
+            }else {
+                holder.getView(R.id.stick_container).setVisibility(View.GONE);
+            }
+        }
+        holder.itemView.setContentDescription(friend.getFirstPinyin());
     }
 
     @Override

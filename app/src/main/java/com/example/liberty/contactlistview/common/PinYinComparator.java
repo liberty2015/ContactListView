@@ -11,8 +11,6 @@ import java.util.Comparator;
 public class PinYinComparator implements Comparator<Friend> {
     @Override
     public int compare(Friend o1, Friend o2) {
-        String pinyin1=Pinyin4jUtil.convertToFirstSpell(o1.getAccount());
-        String pinyin2=Pinyin4jUtil.convertToFirstSpell(o2.getAccount());
-        return pinyin1.compareToIgnoreCase(pinyin2);
+        return o1.getPinyin().compareToIgnoreCase(o2.getPinyin());
     }
 }
