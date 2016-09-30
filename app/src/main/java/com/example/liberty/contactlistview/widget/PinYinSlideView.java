@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.example.liberty.contactlistview.R;
 
@@ -202,8 +201,7 @@ public class PinYinSlideView extends View implements View.OnTouchListener{
                     c1[1]++;
                 }
             }
-        }
-        else {
+        }else {
             if (onShowTextListener!=null){
                 onShowTextListener.showText(null);
             }

@@ -11,6 +11,11 @@ import java.util.Comparator;
 public class PinYinComparator implements Comparator<Friend> {
     @Override
     public int compare(Friend o1, Friend o2) {
+        if (o1.getPinyin().equals("#")){
+            return 1;
+        }else if (o2.getPinyin().equals("#")){
+            return -1;
+        }
         return o1.getPinyin().compareToIgnoreCase(o2.getPinyin());
     }
 }

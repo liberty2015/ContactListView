@@ -3,9 +3,23 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <include
+    <LinearLayout
+        android:id="@+id/stick_container"
         android:visibility="gone"
-        layout="@layout/stick_header"/>
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/txtGray"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:id="@+id/header"
+            android:text="A"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"

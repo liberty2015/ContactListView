@@ -153,14 +153,14 @@ public class Pinyin4jUtil {
         List<String> returnList=new ArrayList<>();
         if (first!=null){
             for (String str:first.keySet()){
-                returnStr+=(str+",");
+                returnStr+=(str+" ");
                 returnList.add(str);
             }
         }
         if (returnStr.length()>0){
             returnStr=returnStr.substring(0,returnStr.length()-1);
         }
-        return returnStr;
+        return returnList.get(0);
     }
 
     private static List<String> parseTheChineseByObjectToList(List<Map<String,Integer>> list){
